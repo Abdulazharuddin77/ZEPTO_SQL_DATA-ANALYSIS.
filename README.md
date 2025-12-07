@@ -21,39 +21,33 @@ The main objective of this project is to:
 
 ## 🧾 Dataset Details  
 
-The dataset represents real-world e-commerce grocery delivery data similar to Zepto and includes:
+- Originally scraped from Zepto's official product listings, the dataset was obtained from Kaggle. It is similar to what you would find in an actual e-commerce inventory system.
 
-- Customer Information  
-- Product Listings  
-- Categories  
-- Orders & Order Items  
-- Delivery Time & Distance  
-- Payment Methods  
-- Order Status  
-- Revenue & Discounts  
+- A distinct SKU (Stock Keeping Unit) for a product is represented by each row. Because the same product may appear more than once in various packaging sizes, weights, discounts, or categories to increase visibility—exactly how actual catalog data appears—duplicate product names exist.
 
-### Key Columns (Sample)
+### 
  Columns:
 
-sku_id: Unique identifier for each product entry (Synthetic Primary Key)
+- sku_id: Unique identifier for each product entry (Synthetic Primary Key)
 
-name: Product name as it appears on the app
+- name: Product name 
 
-category: Product category like Fruits, Snacks, Beverages, etc.
+- category: Product category like Fruits, Snacks, etc.
 
-mrp: Maximum Retail Price (originally in paise, converted to ₹)
+- mrp: Maximum Retail Price (Converted from paise ₹)
 
-discountPercent: Discount applied on MRP
+- discountPercent: Discount applied on MRP
 
-discountedSellingPrice: Final price after discount (also converted to ₹)
+- discountedSellingPrice: Final price after discount & (also converted to ₹)
 
-availableQuantity: Units available in inventory
+- availableQuantity: Units available in inventory
 
-weightInGms: Product weight in grams
+- weightInGms: The weight of the product in grams
 
-outOfStock: Boolean flag indicating stock availability
+- outOfStock: A Boolean indication that indicates the availability of stock
 
-quantity: Number of units per package (mixed with grams for loose produce)
+- quantity: Number of units per package (mixed with grams for loose produce)
+ 
 ---
 
 ## 🛠 Tools & Technologies Used  
@@ -68,24 +62,31 @@ quantity: Number of units per package (mixed with grams for loose produce)
 - Python – Data cleaning or automation  
 
 ---
+## ⚙ Project Execution Flow  
 
-## ⚙ Project Workflow  
-
-1. Understanding the business problem  
-2. Importing the dataset into SQL database  
-3. Cleaning and validating the data  
-4. Performing Exploratory Data Analysis (EDA)  
-5. Writing *business-focused SQL queries*  
-6. Extracting insights & KPIs  
-7. Creating reports / dashboards (optional)  
-8. Publishing on GitHub as a portfolio project  
+This project follows a structured, end-to-end SQL analytics workflow as outlined below:
 
 ---
+1 . Database & Schema Setup  
 
-## 📈 Business Insights Generated
-Peak orders occur during evening hours
-Grocery & dairy categories generate highest revenue
-UPI & COD are the most used payment methods
-Heavy repeat orders from a small group of customers
-Discount strategy significantly increases sales volume
+The first step is to define a structured SQL table to store the Zepto product dataset efficiently. Appropriate data types are assigned to ensure accuracy and performance.
+
+```sql
+CREATE TABLE zepto (
+  sku_id SERIAL PRIMARY KEY,
+  category VARCHAR(120),
+  name VARCHAR(150) NOT NULL,
+  mrp NUMERIC(8,2),
+  discountPercent NUMERIC(5,2),
+  availableQuantity INTEGER,
+  discountedSellingPrice NUMERIC(8,2),
+  weightInGms INTEGER,
+  outOfStock BOOLEAN,
+  quantity INTEGER
+);
+
+---
+2  .Dataset Loading
+The CSV dataset is imported into PostgreSQL using pgAdmin’s built-in import option.
+If the import option is unavailable, the dataset can also be inserted using the COPY command:
 ---
