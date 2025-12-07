@@ -78,7 +78,7 @@ CREATE TABLE zepto (
   FROM 'data/zepto_v2.csv' WITH (FORMAT csv, HEADER true, DELIMITER ',', QUOTE '"', ENCODING 'UTF8');
 ```
 ### 3 Data Understanding & Exploration
-----Once the data is loaded, several exploratory checks are performed:
+  Once the data is loaded, several exploratory checks are performed:
 - Total number of records is calculated
 - A preview of the dataset is examined to understand column structure
 - Null value checks are applied across all fields
@@ -87,12 +87,12 @@ CREATE TABLE zepto (
 - Duplicate product names with different SKUs are detected.
 
 ### 4 Data Quality Improvement
----To ensure reliable insights, essential cleaning steps are applied:
+  To ensure reliable insights, essential cleaning steps are applied:
 - Records with zero MRP or zero selling price are eliminated
 - Price values are converted from paise into rupees for standardization and better interpretation
 
 ### 5 SQL-Driven Business Analytics
----Multiple analytical queries are executed to generate real-world business insights:
+  Multiple analytical queries are executed to generate real-world business insights:
 - Top 10 products offering the highest discount percentage
 - Premium-priced products that are currently unavailable
 - Category-level revenue estimation
@@ -104,6 +104,7 @@ CREATE TABLE zepto (
 
 
  🛠 How to Run This Project Locally
+ 
 1 . Clone the repository
 ```
 https://github.com/Abdulazharuddin77/ZEPTO_SQL_DATA-ANALYSIS..git
