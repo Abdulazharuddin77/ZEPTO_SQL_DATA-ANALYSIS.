@@ -84,9 +84,3 @@ CREATE TABLE zepto (
   outOfStock BOOLEAN,
   quantity INTEGER
 );
-
----
-2  .Dataset Loading
-The CSV dataset is imported into PostgreSQL using pgAdmin’s built-in import option.
-If the import option is unavailable, the dataset can also be inserted using the COPY command:
----
