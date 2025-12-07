@@ -72,3 +72,6 @@ This project follows a structured, end-to-end SQL analytics workflow as outlined
 The first step is to define a structured SQL table to store the Zepto product dataset efficiently. Appropriate data types are assigned to ensure accuracy and performance.
 
 ```sql
+
+
+
